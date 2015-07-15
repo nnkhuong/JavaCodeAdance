@@ -78,5 +78,29 @@ public class BinarySearchTreeTest {
 		
 		assertEquals(4, bst.getHeightOfTree());		
 	}
+	@Test
+	public void testCollectEvenNodes()
+	{
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		array.add(30);
+		array.add(23);
+		array.add(45);
+		array.add(6);
+		array.add(47);
+		array.add(50);
+		array.add(29);
+		array.add(10);
+		BinarySearchTree<Integer> bst = new BinarySearchTree<Integer>();
+		bst.buildBinaryTree(array);
+		
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		bst.collectEvenNodes(result);
+		System.out.println("---------------------");
+		for(Integer evenNode : result)
+		{
+			System.out.println(evenNode);
+		}
+		//assertEquals(4, bst.getHeightOfTree());		
+	}
 
 }

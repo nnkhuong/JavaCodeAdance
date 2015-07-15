@@ -204,6 +204,23 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		
 		return (((Integer)rootInput.getData() % 2 == 0) ? 1: 0) + countEvenNode(rootInput.left) + countEvenNode(rootInput.right);
 	}
+	
+	// collect Even Number of Tree
+	public void collectEvenNodes(ArrayList<Integer> arrayList)
+	{
+		collectEvenNodes(this.root, arrayList);
+	}
+	public void collectEvenNodes(BinaryNode rootInput, ArrayList<Integer> arrayList)
+	{
+		if(rootInput == null)
+			return;
+		
+		if((Integer)rootInput.getData() % 2 == 0)
+			arrayList.add((Integer)rootInput.getData());
+		
+		collectEvenNodes(rootInput.left, arrayList) ;
+		collectEvenNodes(rootInput.right, arrayList) ;
+	}
 	class BinaryNode 
 	{
 		private E data;

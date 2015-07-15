@@ -190,6 +190,20 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	{
 		return (value1 > value2) ? value1 : value2;
 	}
+	
+	public int countEvenNode()
+	{
+		return countEvenNode(this.root);
+	}
+	
+	// utility function, used inside only
+	private int countEvenNode(BinaryNode rootInput)
+	{
+		if(rootInput == null)
+			return 0;
+		
+		return (((Integer)rootInput.getData() % 2 == 0) ? 1: 0) + countEvenNode(rootInput.left) + countEvenNode(rootInput.right);
+	}
 	class BinaryNode 
 	{
 		private E data;

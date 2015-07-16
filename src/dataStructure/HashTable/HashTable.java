@@ -21,7 +21,7 @@ public class HashTable {
 	
 	public HashTable()
 	{
-		table = new HashEntry[TABLE_SIZE];
+		this.table = new HashEntry[TABLE_SIZE];
 		for(int i = 0 ; i < TABLE_SIZE; ++i)
 		{
 			this.table[i] = null;
@@ -32,6 +32,7 @@ public class HashTable {
 	// get value at a cell (HashEntry), if the key is not seen on the table then return -1
 	public int get(int key)
 	{
+		// hash code: index of the table
 		int hash = key % TABLE_SIZE;
 		if(this.table[hash] != null)
 		{
@@ -43,6 +44,7 @@ public class HashTable {
 	// put a pair(key, value) into cell of the table, override value if there are same key
 	public void put(int key, int value)
 	{
+		// hash code: index of the table
 		int hash = key % TABLE_SIZE;
 		if(this.table[hash] == null)
 		{
@@ -59,6 +61,7 @@ public class HashTable {
 	// remove a cell on the table with key and value are provided
 	public boolean remove(int key, int value)
 	{
+		// hash code: index of the table
 		int hash = key % TABLE_SIZE;
 		if(this.table[hash] != null && this.table[hash].key == key && this.table[hash].value == value)
 		{

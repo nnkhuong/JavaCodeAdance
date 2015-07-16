@@ -129,6 +129,7 @@ public class SinglyLinkedList<E extends Comparable<E>> {
 						cur.setNext(null);
 						this.tail = cur;
 						this.size--;
+						break;
 					}
 					i++;
 					cur = cur.getNext();

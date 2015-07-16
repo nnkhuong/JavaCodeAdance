@@ -15,9 +15,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	private String arrayToString(ArrayList<E> arrayList)
 	{
 		String str ="[";
-		for(int i = 0; i < arrayList.size(); ++i)
+		int i = 0;
+		for(E item : arrayList)
 		{
-			str = str + arrayList.get(i) + ((i != arrayList.size()-1) ? ", ": "]" );
+			str = str + item + ((i != arrayList.size()-1) ? ", ": "]" );
+			i++;
 		}
 		return str;
 	}
@@ -25,9 +27,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	public void buildBinaryTree(ArrayList<E> arrayList)
 	{
 		System.out.println("Build Binary Tree from array :" + arrayToString(arrayList));
-		for(int i = 0 ; i < arrayList.size(); ++i)
+		for(E item : arrayList)
 		{
-			insert(arrayList.get(i));
+			insert(item);
 		}
 	}
 	// insert node , mean each step building the binary tree
@@ -57,7 +59,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		}
 		else
 		{
-			// duplicate; according to Lerman Professor, ignore this case
+			// duplicate; ignore this case
 		}
 		return rootInput;
 	}
@@ -134,10 +136,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	{
 		if(rootInput == null)
 			return 0;
-		if(rootInput.getLeft() == null && rootInput.getRight() == null)
-		{
-			return 1;
-		}
 		
 		return countNodes(rootInput.getLeft()) + countNodes(rootInput.getRight()) + 1;
 	}
@@ -241,19 +239,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	public int maxNode()
 	{
 		BinaryNode cur = this.root;
-		int maxValue ;
+		BinaryNode maxValue = null;
 		if(cur == null)
 			return -1;
-		maxValue = (Integer)cur.data;
+
 		while(cur != null)
 		{
-			if(maxValue <  (Integer)cur.data)
-			{
-				maxValue = (Integer)cur.data;
-			}
+			maxValue = cur;
 			cur = cur.right;
 		}
-		return maxValue;
+		return (Integer)maxValue.data;
 	}
 
 	// find min Node; if empty tree , return -1
@@ -261,19 +256,15 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	public int minNode()
 	{
 		BinaryNode cur = this.root;
-		int minValue ;
+		BinaryNode minValue = null;
 		if(cur == null)
 			return -1;
-		minValue = (Integer)cur.data;
 		while(cur != null)
 		{
-			if(minValue > (Integer)cur.data)
-			{
-				minValue = (Integer)cur.data;
-			}
+			minValue = cur;
 			cur = cur.left;
 		}
-		return minValue;		
+		return (Integer)minValue.data;		
 	}
 	class BinaryNode 
 	{

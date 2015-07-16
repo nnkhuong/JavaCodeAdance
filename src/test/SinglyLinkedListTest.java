@@ -20,5 +20,16 @@ public class SinglyLinkedListTest {
 		String expectedResult = "[60,50,40,30,20]";
 		assertTrue(expectedResult.equals(sll.toString()));
 	}
+	@Test
+	public void testMinNode() {
+		SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>();
+		sll.addAtHead(20);
+		sll.addAtHead(30);
+		sll.addAtHead(4);
+		sll.addAtHead(50);
+		sll.addAtHead(60);
+		
+		assertTrue(sll.findMinNode().equals(4));
 
+	}
 }

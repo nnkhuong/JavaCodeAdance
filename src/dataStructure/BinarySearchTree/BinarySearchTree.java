@@ -178,10 +178,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		{
 			return 0;
 		}
-		else
-		{
-			
-		}
 		return max(getHeightOfTree(rootInput.getRight()) , getHeightOfTree(rootInput.getLeft() ) ) + 1 ;
 	}
 	
@@ -220,6 +216,64 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		
 		collectEvenNodes(rootInput.left, arrayList) ;
 		collectEvenNodes(rootInput.right, arrayList) ;
+	}
+	
+	// check all of Nodes is Even Number
+	public boolean isAllEvenNumber()
+	{
+		return isAllEvenNumber(this.root);
+	}
+
+	public boolean isAllEvenNumber(BinaryNode rootInput)
+	{
+		if(rootInput == null)
+			return true;
+		
+		if((Integer)rootInput.getData() % 2 == 1 )
+		{
+			return false;
+		}
+		return isAllEvenNumber(rootInput.left) && isAllEvenNumber(rootInput.right);
+	}
+	
+	// find max Node; if empty tree , return -1
+	// greater Node always comes from right side of tree
+	public int maxNode()
+	{
+		BinaryNode cur = this.root;
+		int maxValue ;
+		if(cur == null)
+			return -1;
+		maxValue = (Integer)cur.data;
+		while(cur != null)
+		{
+			if(maxValue <  (Integer)cur.data)
+			{
+				maxValue = (Integer)cur.data;
+			}
+			cur = cur.right;
+		}
+		return maxValue;
+	}
+
+	// find min Node; if empty tree , return -1
+	// lesser Node always comes from left side of tree
+	public int minNode()
+	{
+		BinaryNode cur = this.root;
+		int minValue ;
+		if(cur == null)
+			return -1;
+		minValue = (Integer)cur.data;
+		while(cur != null)
+		{
+			if(minValue > (Integer)cur.data)
+			{
+				minValue = (Integer)cur.data;
+			}
+			cur = cur.left;
+		}
+		return minValue;		
 	}
 	class BinaryNode 
 	{

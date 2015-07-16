@@ -201,6 +201,25 @@ public class SinglyLinkedList<E extends Comparable<E>> {
 		}
 		return true;
 	}
+	// find Node has minimum value of Link List, return null if list empty
+	public E findMinNode()
+	{
+		Node cur = this.head;
+		Node minNode = this.head;
+		if(this.isEmpty())
+			return null;
+		
+		
+		while(cur != null)
+		{
+			if(minNode.value.compareTo(cur.value) > 0)
+			{
+				minNode = cur;
+			}
+			cur = cur.getNext();
+		}
+		return minNode.value;
+	}
 	public boolean isEmpty()
 	{
 		if(this.head == null && this.tail == null && this.size == 0)

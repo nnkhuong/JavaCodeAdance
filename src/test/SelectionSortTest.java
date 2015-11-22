@@ -7,9 +7,9 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import sorting.bubblesort.BubbleSort;
-import sorting.insertionsort.InsertionSort;
-import sorting.selectionsort.SelectionSort;
+import sorting.BubbleSort;
+import sorting.InsertionSort;
+import sorting.SelectionSort;
 
 public class SelectionSortTest {
 
@@ -24,7 +24,7 @@ public class SelectionSortTest {
 		return a;
 	}
 	@Test
-	public void testSortingCorrecness() {
+	public void testSortingCorretness() {
 		InsertionSort insertionSort = new InsertionSort();
 		BubbleSort bubbleSort = new BubbleSort();
 		SelectionSort selectionSort = new SelectionSort();

@@ -6,8 +6,8 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import sorting.bubblesort.BubbleSort;
-import sorting.insertionsort.InsertionSort;
+import sorting.BubbleSort;
+import sorting.InsertionSort;
 
 public class InsertionSortTest {
 
@@ -22,7 +22,7 @@ public class InsertionSortTest {
 		return a;
 	}
 	@Test
-	public void testSortingCorrestness() {
+	public void testSortingCorretness() {
 		InsertionSort insertionSort = new InsertionSort();
 		BubbleSort bubbleSort = new BubbleSort();
 		int length = 1000;
